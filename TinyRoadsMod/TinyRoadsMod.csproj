@@ -64,25 +64,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\TinyRoadAI.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="ModInfo.cs" />
+    <Compile Include="Patches\RoadAI_GetLengthSnap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Redirection\Extensions\MethodInfoExtensions.cs" />
-    <Compile Include="Redirection\RedirectAttribute.cs" />
-    <Compile Include="Redirection\RedirectFromAttribute.cs" />
-    <Compile Include="Redirection\RedirectionHelper.cs" />
-    <Compile Include="Redirection\Redirector.cs" />
-    <Compile Include="Redirection\RedirectToAttribute.cs" />
-    <Compile Include="Snapping\IRoadSnappingMode.cs" />
-    <Compile Include="Snapping\RoadSnappingModeManager.cs" />
-    <Compile Include="Snapping\TinyRoadRoadSnappingMode.cs" />
-    <Compile Include="Zoning\IZoneBLockCreator.cs" />
-    <Compile Include="Zoning\RoadZoneBlocksCreationManager.cs" />
+    <Compile Include="Snapping\TinyRoadSnapping.cs" />
+    <Compile Include="TinyRoadRegistry.cs" />
     <Compile Include="Zoning\TinyRoadZoneBlocksCreator.cs" />
     <Compile Include="Zoning\ZoneBlocksOffset.cs" />
     <Compile Include="Zoning\ZoneBlocksOffsetMode.cs" />
+    <Compile Include="Patches\RoadAI_CreateZoneBlocks.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony">
+      <Version>1.2.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,12 +8,12 @@ using UnityEngine;
 
 namespace TinyRoadsMod.Zoning
 {
-    public class TinyRoadZoneBlocksCreator : IZoneBlocksCreator
+    public static class TinyRoadZoneBlocksCreator
     {
         private const float MIN_HALFWIDTH_TINY_CURVE = 6f;
         private const float MIN_HALFWIDTH_TINY_STRAIGHT = 4f;
 
-        public void CreateZoneBlocks(NetInfo info, ushort segmentId, ref NetSegment segment)
+        public static void CreateZoneBlocks(NetInfo info, ushort segmentId, ref NetSegment segment)
         {
             var netManager = Singleton<NetManager>.instance;
             var randomizer = new Randomizer((int)segmentId);

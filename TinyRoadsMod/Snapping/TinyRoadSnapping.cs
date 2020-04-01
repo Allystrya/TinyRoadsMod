@@ -5,8 +5,8 @@ using System.Text;
 
 namespace TinyRoadsMod.Snapping
 {
-    public interface IRoadSnappingMode
+    public static class TinyRoadSnapping
     {
-        float GetLengthSnap();
+        public const float LengthSnap = 4;
     }
 }
