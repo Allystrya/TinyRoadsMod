@@ -19,12 +19,16 @@ namespace TinyRoadsMod
             {
                 var networks  = Resources.FindObjectsOfTypeAll<NetInfo>();
                 var tinyRoads = from network in networks
-                                where network.m_halfWidth < 5
-                                where network.m_placementStyle == ItemClass.Placement.Manual
-                                where network.m_laneTypes.HasFlag(NetInfo.LaneType.Vehicle)
-                                where network.m_vehicleTypes.HasFlag(VehicleInfo.VehicleType.Car)
-                                where network.m_lanes.Any(lane => lane.m_vehicleType == VehicleInfo.VehicleType.Car)
-                                orderby network.name
+                                let width  = network.m_halfWidth * 2
+                                let roadAi = network.m_netAI as RoadAI // ground level road AI
+                                where roadAi != null // is road
+                                where roadAi.m_enableZoning // road has zoning (eg. not highways)
+                                where width <= Constants.Networks.TinyRoadWidth + Constants.Networks.WidthTolerance // is tiny road (with tolerance)
+                                where network.m_placementStyle == ItemClass.Placement.Manual // exclude generated stuff like bus stops
+                                where network.m_laneTypes.HasFlag(NetInfo.LaneType.Vehicle) // sanity check
+                                where network.m_vehicleTypes.HasFlag(VehicleInfo.VehicleType.Car) // sanity check
+                                where network.m_lanes.Any(lane => lane.m_vehicleType.HasFlag(VehicleInfo.VehicleType.Car)) // sanity check
+                                orderby network.name // just for debugging
                                 select network;
 
                 foreach (var network in tinyRoads)
