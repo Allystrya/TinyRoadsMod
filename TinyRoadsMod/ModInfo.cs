@@ -10,7 +10,7 @@ namespace TinyRoadsMod
 {
     public sealed class ModInfo : LoadingExtensionBase, IUserMod
     {
-        private readonly HarmonyInstance _harmony = HarmonyInstance.Create(Constants.HarmonyId);
+        private readonly HarmonyInstance _harmony = HarmonyInstance.Create(Constants.Mod.HarmonyId);
 
         public string Name => "Tiny Roads";
 

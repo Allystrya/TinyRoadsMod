@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Harmony;
-using TinyRoadsMod.Snapping;
 
 namespace TinyRoadsMod.Patches
 {
@@ -14,7 +13,7 @@ namespace TinyRoadsMod.Patches
         {
             if (TinyRoadRegistry.IsTinyRoad(__instance.m_info.name))
             {
-                __result = TinyRoadSnapping.LengthSnap;
+                __result = Constants.Networks.TinyRoadLengthSnap;
             }
         }
     }

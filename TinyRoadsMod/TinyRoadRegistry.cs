@@ -32,11 +32,11 @@ namespace TinyRoadsMod
                     _tinyRoads.Add(network.name);
                 }
 
-                Debug.Log($"{Constants.LogTag} Roads found:" + String.Join(", ", _tinyRoads.ToArray()));
+                Debug.Log($"{Constants.Log.Tag} Roads found:" + String.Join(", ", _tinyRoads.ToArray()));
             }
             catch (Exception e)
             {
-                Debug.Log($"{Constants.LogTag} Loading:OnLevelLoaded -> Exception: " + e.Message);
+                Debug.Log($"{Constants.Log.Tag} Loading:OnLevelLoaded -> Exception: " + e.Message);
             }
 
         }
